@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "516797630078",
+    "project_id": "instamock-c1d04",
+    "storage_bucket": "instamock-c1d04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516797630078:android:755f2789a69dad4b363a2f",
+        "android_client_info": {
+          "package_name": "com.example.instamock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516797630078-78l8uulst7pmn9fgqsld6opgk8ililg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOrkVpSMyYsHUdzvYIHvogM6fTqNus-eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516797630078-78l8uulst7pmn9fgqsld6opgk8ililg2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "516797630078-ehuk4g1ubkpe3q05pbmjns799lt6npot.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.instamock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
