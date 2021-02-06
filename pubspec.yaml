@@ -25,13 +25,13 @@ dependencies:
     sdk: flutter
 
   dartx: any
-  freezed_annotation: any
-  json_annotation: any
-  hooks_riverpod: any
-  flutter_hooks: any
-  firebase_core: any
+  freezed_annotation: ^0.13.0-nullsafety.0
+  json_annotation: ^4.0.0-nullsafety.0
+  hooks_riverpod: ^0.13.0-nullsafety.2
+  flutter_hooks: ^0.16.0-nullsafety.0
+  firebase_core: ^0.8.0-1.0.nullsafety.1
   firebase_storage: any
-  cloud_firestore: any
+  cloud_firestore: ^0.17.0-1.0.nullsafety.0
 
 
 
@@ -44,7 +44,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
-  freezed: any
+  freezed: ^0.13.0-nullsafety.2
   json_serializable: any
 
 
