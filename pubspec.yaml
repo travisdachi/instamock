@@ -29,9 +29,9 @@ dependencies:
   json_annotation: ^4.0.0-nullsafety.0
   hooks_riverpod: ^0.13.0-nullsafety.2
   flutter_hooks: ^0.16.0-nullsafety.0
-  firebase_core: ^0.8.0-1.0.nullsafety.1
-  firebase_storage: any
-  cloud_firestore: ^0.17.0-1.0.nullsafety.0
+  firebase_core: "0.7.0"
+#  firebase_storage: any
+#  cloud_firestore: any
 
 
 
