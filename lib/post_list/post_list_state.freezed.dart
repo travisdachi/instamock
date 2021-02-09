@@ -14,13 +14,13 @@ class _$PostListStateTearOff {
   const _$PostListStateTearOff();
 
   _PostListState call(
-      {String message = 'Ahoy!',
-      List<Post> postList = const [],
-      bool isLoading = false}) {
+      {List<Post> postList = const [],
+      bool isInitializing = false,
+      bool isLoadingMore = false}) {
     return _PostListState(
-      message: message,
       postList: postList,
-      isLoading: isLoading,
+      isInitializing: isInitializing,
+      isLoadingMore: isLoadingMore,
     );
   }
 }
@@ -30,9 +30,9 @@ const $PostListState = _$PostListStateTearOff();
 
 /// @nodoc
 mixin _$PostListState {
-  String get message;
   List<Post> get postList;
-  bool get isLoading;
+  bool get isInitializing;
+  bool get isLoadingMore;
 
   @JsonKey(ignore: true)
   $PostListStateCopyWith<PostListState> get copyWith;
@@ -43,7 +43,7 @@ abstract class $PostListStateCopyWith<$Res> {
   factory $PostListStateCopyWith(
           PostListState value, $Res Function(PostListState) then) =
       _$PostListStateCopyWithImpl<$Res>;
-  $Res call({String message, List<Post> postList, bool isLoading});
+  $Res call({List<Post> postList, bool isInitializing, bool isLoadingMore});
 }
 
 /// @nodoc
@@ -57,14 +57,18 @@ class _$PostListStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
     Object? postList = freezed,
-    Object? isLoading = freezed,
+    Object? isInitializing = freezed,
+    Object? isLoadingMore = freezed,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed ? _value.message : message as String,
       postList: postList == freezed ? _value.postList : postList as List<Post>,
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
+      isInitializing: isInitializing == freezed
+          ? _value.isInitializing
+          : isInitializing as bool,
+      isLoadingMore: isLoadingMore == freezed
+          ? _value.isLoadingMore
+          : isLoadingMore as bool,
     ));
   }
 }
@@ -76,7 +80,7 @@ abstract class _$PostListStateCopyWith<$Res>
           _PostListState value, $Res Function(_PostListState) then) =
       __$PostListStateCopyWithImpl<$Res>;
   @override
-  $Res call({String message, List<Post> postList, bool isLoading});
+  $Res call({List<Post> postList, bool isInitializing, bool isLoadingMore});
 }
 
 /// @nodoc
@@ -92,14 +96,18 @@ class __$PostListStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? message = freezed,
     Object? postList = freezed,
-    Object? isLoading = freezed,
+    Object? isInitializing = freezed,
+    Object? isLoadingMore = freezed,
   }) {
     return _then(_PostListState(
-      message: message == freezed ? _value.message : message as String,
       postList: postList == freezed ? _value.postList : postList as List<Post>,
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
+      isInitializing: isInitializing == freezed
+          ? _value.isInitializing
+          : isInitializing as bool,
+      isLoadingMore: isLoadingMore == freezed
+          ? _value.isLoadingMore
+          : isLoadingMore as bool,
     ));
   }
 }
@@ -107,47 +115,47 @@ class __$PostListStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_PostListState extends _PostListState {
   const _$_PostListState(
-      {this.message = 'Ahoy!',
-      this.postList = const [],
-      this.isLoading = false})
+      {this.postList = const [],
+      this.isInitializing = false,
+      this.isLoadingMore = false})
       : super._();
 
-  @JsonKey(defaultValue: 'Ahoy!')
-  @override
-  final String message;
   @JsonKey(defaultValue: const [])
   @override
   final List<Post> postList;
   @JsonKey(defaultValue: false)
   @override
-  final bool isLoading;
+  final bool isInitializing;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isLoadingMore;
 
   @override
   String toString() {
-    return 'PostListState(message: $message, postList: $postList, isLoading: $isLoading)';
+    return 'PostListState(postList: $postList, isInitializing: $isInitializing, isLoadingMore: $isLoadingMore)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PostListState &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality()
-                    .equals(other.message, message)) &&
             (identical(other.postList, postList) ||
                 const DeepCollectionEquality()
                     .equals(other.postList, postList)) &&
-            (identical(other.isLoading, isLoading) ||
+            (identical(other.isInitializing, isInitializing) ||
                 const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)));
+                    .equals(other.isInitializing, isInitializing)) &&
+            (identical(other.isLoadingMore, isLoadingMore) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoadingMore, isLoadingMore)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(postList) ^
-      const DeepCollectionEquality().hash(isLoading);
+      const DeepCollectionEquality().hash(isInitializing) ^
+      const DeepCollectionEquality().hash(isLoadingMore);
 
   @JsonKey(ignore: true)
   @override
@@ -158,14 +166,16 @@ class _$_PostListState extends _PostListState {
 abstract class _PostListState extends PostListState {
   const _PostListState._() : super._();
   const factory _PostListState(
-      {String message, List<Post> postList, bool isLoading}) = _$_PostListState;
+      {List<Post> postList,
+      bool isInitializing,
+      bool isLoadingMore}) = _$_PostListState;
 
-  @override
-  String get message;
   @override
   List<Post> get postList;
   @override
-  bool get isLoading;
+  bool get isInitializing;
+  @override
+  bool get isLoadingMore;
   @override
   @JsonKey(ignore: true)
   _$PostListStateCopyWith<_PostListState> get copyWith;

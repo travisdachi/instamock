@@ -18,22 +18,39 @@ class PostListPage extends HookWidget {
       children: [
         Scaffold(
           appBar: AppBar(title: Text('Instamock')),
-          body: ListView.separated(
-            itemBuilder: (context, index) {
-              final post = state.postList[index];
-              return PostWidget(
-                key: ValueKey(post.id),
-                post: post,
-              );
+          body: NotificationListener<ScrollNotification>(
+            onNotification: (scroll) {
+              if (scroll is ScrollUpdateNotification && scroll.metrics.extentAfter < 50) {
+                vm.fetchMoreIfAny();
+              }
+              return false;
             },
-            separatorBuilder: (context, index) {
-              return Container(
-                height: 16,
-                width: double.infinity,
-                color: Colors.grey.shade300,
-              );
-            },
-            itemCount: state.postList.length,
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                if (state.isLoadingMore && index == state.postCount - 1) {
+                  return Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    color: Colors.grey.shade300,
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  final post = state.postList[index];
+                  return PostWidget(
+                    key: ValueKey(post.id),
+                    post: post,
+                  );
+                }
+              },
+              separatorBuilder: (context, index) {
+                return Container(
+                  height: 16,
+                  width: double.infinity,
+                  color: Colors.grey.shade300,
+                );
+              },
+              itemCount: state.postCount,
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
@@ -46,7 +63,7 @@ class PostListPage extends HookWidget {
             },
           ),
         ),
-        if (state.isLoading)
+        if (state.isInitializing)
           Material(
             color: Colors.black54,
             child: Center(
