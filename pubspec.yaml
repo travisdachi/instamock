@@ -33,6 +33,7 @@ dependencies:
   firebase_storage: any
   cloud_firestore: any
   multi_image_picker: any
+  cached_network_image: any
 
 
 

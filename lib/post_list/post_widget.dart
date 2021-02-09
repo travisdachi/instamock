@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:instamock/post_list/page_indicator.dart';
@@ -34,7 +35,11 @@ class PostWidget extends HookWidget {
               child: Stack(
                 children: [
                   PageView(
-                    children: post.imageUrls!.map((e) => Image.network(e)).toList(),
+                    children: post.imageUrls!.map((e) {
+                      return CachedNetworkImage(
+                        imageUrl: e,
+                      );
+                    }).toList(),
                     onPageChanged: (value) {
                       currentPage.value = value;
                     },
