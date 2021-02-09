@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/all.dart';
-import 'package:instamock/post/post_list_page.dart';
+import 'package:instamock/post_list/post_list_page.dart';
 
 class InstamockApp extends StatelessWidget {
   @override
