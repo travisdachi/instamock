@@ -30,9 +30,9 @@ dependencies:
   hooks_riverpod: ^0.13.0-nullsafety.2
   flutter_hooks: ^0.16.0-nullsafety.0
   firebase_core: "0.7.0"
-#  firebase_storage: any
-#  cloud_firestore: any
-
+  firebase_storage: any
+  cloud_firestore: any
+  multi_image_picker: any
 
 
 

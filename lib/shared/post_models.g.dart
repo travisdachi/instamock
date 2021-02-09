@@ -10,15 +10,17 @@ _$_Post _$_$_PostFromJson(Map<String, dynamic> json) {
   return _$_Post(
     id: json['id'] as String,
     username: json['username'] as String,
+    createdAt: json['createdAt'] as int,
     message: json['message'] as String,
     imageUrls:
-        (json['imageUrls'] as List<dynamic>).map((e) => e as String).toList(),
+        (json['imageUrls'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 
 Map<String, dynamic> _$_$_PostToJson(_$_Post instance) => <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
+      'createdAt': instance.createdAt,
       'message': instance.message,
       'imageUrls': instance.imageUrls,
     };

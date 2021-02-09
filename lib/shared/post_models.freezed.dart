@@ -19,11 +19,13 @@ class _$PostTearOff {
   _Post call(
       {required String id,
       required String username,
+      required int createdAt,
       required String message,
-      required List<String> imageUrls}) {
+      List<String>? imageUrls}) {
     return _Post(
       id: id,
       username: username,
+      createdAt: createdAt,
       message: message,
       imageUrls: imageUrls,
     );
@@ -41,8 +43,9 @@ const $Post = _$PostTearOff();
 mixin _$Post {
   String get id;
   String get username;
+  int get createdAt;
   String get message;
-  List<String> get imageUrls;
+  List<String>? get imageUrls;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -54,7 +57,11 @@ abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
   $Res call(
-      {String id, String username, String message, List<String> imageUrls});
+      {String id,
+      String username,
+      int createdAt,
+      String message,
+      List<String>? imageUrls});
 }
 
 /// @nodoc
@@ -69,15 +76,17 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? username = freezed,
+    Object? createdAt = freezed,
     Object? message = freezed,
     Object? imageUrls = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       username: username == freezed ? _value.username : username as String,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
       message: message == freezed ? _value.message : message as String,
       imageUrls:
-          imageUrls == freezed ? _value.imageUrls : imageUrls as List<String>,
+          imageUrls == freezed ? _value.imageUrls : imageUrls as List<String>?,
     ));
   }
 }
@@ -88,7 +97,11 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       __$PostCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id, String username, String message, List<String> imageUrls});
+      {String id,
+      String username,
+      int createdAt,
+      String message,
+      List<String>? imageUrls});
 }
 
 /// @nodoc
@@ -104,15 +117,17 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? username = freezed,
+    Object? createdAt = freezed,
     Object? message = freezed,
     Object? imageUrls = freezed,
   }) {
     return _then(_Post(
       id: id == freezed ? _value.id : id as String,
       username: username == freezed ? _value.username : username as String,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
       message: message == freezed ? _value.message : message as String,
       imageUrls:
-          imageUrls == freezed ? _value.imageUrls : imageUrls as List<String>,
+          imageUrls == freezed ? _value.imageUrls : imageUrls as List<String>?,
     ));
   }
 }
@@ -124,8 +139,9 @@ class _$_Post extends _Post {
   const _$_Post(
       {required this.id,
       required this.username,
+      required this.createdAt,
       required this.message,
-      required this.imageUrls})
+      this.imageUrls})
       : super._();
 
   factory _$_Post.fromJson(Map<String, dynamic> json) =>
@@ -136,13 +152,15 @@ class _$_Post extends _Post {
   @override
   final String username;
   @override
+  final int createdAt;
+  @override
   final String message;
   @override
-  final List<String> imageUrls;
+  final List<String>? imageUrls;
 
   @override
   String toString() {
-    return 'Post(id: $id, username: $username, message: $message, imageUrls: $imageUrls)';
+    return 'Post(id: $id, username: $username, createdAt: $createdAt, message: $message, imageUrls: $imageUrls)';
   }
 
   @override
@@ -154,6 +172,9 @@ class _$_Post extends _Post {
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
                     .equals(other.username, username)) &&
+            (identical(other.createdAt, createdAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdAt, createdAt)) &&
             (identical(other.message, message) ||
                 const DeepCollectionEquality()
                     .equals(other.message, message)) &&
@@ -167,6 +188,7 @@ class _$_Post extends _Post {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(imageUrls);
 
@@ -186,8 +208,9 @@ abstract class _Post extends Post {
   const factory _Post(
       {required String id,
       required String username,
+      required int createdAt,
       required String message,
-      required List<String> imageUrls}) = _$_Post;
+      List<String>? imageUrls}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
@@ -196,9 +219,11 @@ abstract class _Post extends Post {
   @override
   String get username;
   @override
+  int get createdAt;
+  @override
   String get message;
   @override
-  List<String> get imageUrls;
+  List<String>? get imageUrls;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith;

@@ -11,8 +11,9 @@ abstract class Post implements _$Post {
   const factory Post({
     required String id,
     required String username,
+    required int createdAt,
     required String message,
-    required List<String> imageUrls,
+    List<String>? imageUrls,
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
